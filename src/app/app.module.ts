@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MovieListComponent } from './movies/movie-list.component';
 import { FormsModule } from '@angular/forms';
+import { ConvertPipe } from './shared/convert.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieListComponent
+    MovieListComponent,
+    ConvertPipe
   ],
   imports: [
     BrowserModule,

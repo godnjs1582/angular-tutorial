@@ -45,4 +45,19 @@ export class MovieListComponent implements OnInit{
     }
 }
 ```
+## 3.커스텀 파이프(Custom Pipe)
+:내장 파이프에 지원하지 않는 변환이 필요한 경우 커스텀 파이프를 제작하여 사용
+```
+import { Pipe, PipeTransform } from  "@angular/core";
+@Pipe({
+    name:"conver"
+})
 
+export class ConverPipe implements PipeTransform{
+    transform(vale:any,...args:any[])
+}
+```
+- import
+- 데코레이터의 정의
+- 클래스 작성
+- transform 메서드 작성: 첫번째 매개변수는 변환하는 대상값, 추가 매개변수는 변환을 위해 사용하는 인수들

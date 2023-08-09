@@ -33,7 +33,7 @@
               <td>
                 <img *ngIf="isImageDisplayed" [src]="movie.imageUrl" [title]="movie.name" [style.width.px]="imageWidth" [style.margin.px]="imageMargin">
               </td>
-              <td>{{movie.name}}</td>
+              <td>{{movie.name|convert:"-":" "}}</td>
               <td>{{movie.director|uppercase}}</td>
               <td>{{movie.releaseDate|date:'MMM d, y'}}</td>
               <td>{{movie.actor|lowercase}}</td>
