@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { IMovie }from "./movie.model"
 
 @Component({
     selector:"app-movie",
@@ -10,7 +11,7 @@ export class MovieListComponent{
     imageMargin:number=2;
     isImageDisplayed:boolean=false;
     filterText:string="";
-    movies:any[]=[
+    movies:IMovie[]=[
         {
             "movieId":1,
             "name":"matrix4",
