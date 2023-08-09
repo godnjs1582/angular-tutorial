@@ -11,7 +11,24 @@ export class MovieListComponent implements OnInit{
     imageWidth:number=55;
     imageMargin:number=2;
     isImageDisplayed:boolean=false;
-    filterText:string="";
+    // filterText:string="";
+    private _filterText="";
+
+    get filterText():string{
+        return this._filterText;
+    }
+    set filterText(v:string){
+        this._filterText=v;
+        this.filteredMovies=this.performFilter(v)
+    }
+
+    public performFilter(filterBy:string):IMovie[]{
+        filterBy=filterBy.toLocaleLowerCase();
+        return this.movies.filter((movie:IMovie)=>{
+            return movie.name.toLocaleLowerCase().includes(filterBy)
+        })
+    }
+    filteredMovies:IMovie[]=[];
     movies:IMovie[]=[
         {
             "movieId":1,

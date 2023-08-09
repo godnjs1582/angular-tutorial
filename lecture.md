@@ -50,7 +50,7 @@ export class MovieListComponent implements OnInit{
 ```
 import { Pipe, PipeTransform } from  "@angular/core";
 @Pipe({
-    name:"conver"
+    name:"convert"
 })
 
 export class ConverPipe implements PipeTransform{
@@ -61,3 +61,16 @@ export class ConverPipe implements PipeTransform{
 - 데코레이터의 정의
 - 클래스 작성
 - transform 메서드 작성: 첫번째 매개변수는 변환하는 대상값, 추가 매개변수는 변환을 위해 사용하는 인수들
+
+## 4.getter와 setter
+
+```
+private _score:number=0;
+public get score():number{
+    return this._score;
+}
+public set score(v:number){
+    this._score=v;
+}
+```
+- backing variable : getter와 setter에 의해서만 관리되어야 함, 관례적으로 _를 붙임
