@@ -101,3 +101,30 @@ starClick():void{
 
 <app-star-score [call]="callFromStar($event)">
 ```
+
+## 서비스(Service)
+- 집중적인 목적을 가진 클래스
+- 특정 컴포넌트와 별도로 독립적인 기능을 구현하거나 컴포넌트 간에 데이터 또는 로직이 필요한 경우
+- 데이터 액세스와 같은 외부 상호 작용의 캡슐화
+- 이러한 책임을 컴포넌트에서 서비스로 이동하여 테스트, 디버그 용이하게 하고 재사용 가능하게 함
+
+### 서비스를 이용하는 두 가지 방법
+- 컴포넌트에서 서비스 인스턴스를 생성하여 사용
+```
+export class MyService{
+
+}
+
+let myService = new MyService();
+```
+: 데이터와 기타 리소스 공유가 안되고 테스트가 어려움, 일반적으로 사용하지 않음
+
+- 인젝터와 의존성 주입
+```
+export class MyService{}
+
+constructor(private myservice:MySesrvice){
+
+}
+```
+## 의존성 주입
