@@ -3,7 +3,8 @@ import { IMovie }from "./movie.model"
 
 @Component({
     selector:"app-movie",
-    templateUrl:"./movie-list.component.html"
+    templateUrl:"./movie-list.component.html",
+    styleUrls:["./movie-list.component.scss"]
 })
 export class MovieListComponent{
     subTitle:string="영화리스트";

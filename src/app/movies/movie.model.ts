@@ -5,6 +5,6 @@ export interface IMovie{
     releaseDate:string;
     actor:string;
     rate:number;
-    price:number;
+    price?:number;
     imageUrl:string;
 }
