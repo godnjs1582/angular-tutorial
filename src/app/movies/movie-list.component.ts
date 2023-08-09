@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { IMovie }from "./movie.model"
 
 @Component({
@@ -6,7 +6,7 @@ import { IMovie }from "./movie.model"
     templateUrl:"./movie-list.component.html",
     styleUrls:["./movie-list.component.scss"]
 })
-export class MovieListComponent{
+export class MovieListComponent implements OnInit{
     subTitle:string="영화리스트";
     imageWidth:number=55;
     imageMargin:number=2;
@@ -32,6 +32,10 @@ export class MovieListComponent{
             "imageUrl":"",
         },
     ]
+
+    public ngOnInit(): void {
+        console.log("앵귤러 라이프 사이클:ngOnInit()")
+    }
     public toggleImage():void{
         this.isImageDisplayed=!this.isImageDisplayed;
     };
