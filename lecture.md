@@ -75,4 +75,29 @@ public set score(v:number){
 ```
 - backing variable : getter와 setter에 의해서만 관리되어야 함, 관례적으로 _를 붙임
 
-## 5.컴포넌트 중첩
+## 5.컴포넌트 간 데이터 통신
+### input 사용법
+: 하위 컴포넌트가 부모 컴포넌트에서 데이터를 수신하기 위함
+```
+export class StarScoreComponent implements OnChanges{
+    @Input() rating:number=4;
+    cropWidth:number=75;
+    ngOnChanges():void{
+        this.cropWidth=this.rating*75/5
+    }
+}
+
+<app-star-score [rating]="movie.rate">
+```
+### output 사용법
+: 자식 컴포넌트의 데이터를 부모 컴포넌트로 보내기 위함 => 오직 프로퍼티가 이벤트일때만 적용이 가능함
+```
+<div style="width:75px" [click]="starClick()">
+@Output():call:EventEmitter<number>=new EventEmitter();
+
+starClick():void{
+    this.call.emit(this.rating)
+}
+
+<app-star-score [call]="callFromStar($event)">
+```

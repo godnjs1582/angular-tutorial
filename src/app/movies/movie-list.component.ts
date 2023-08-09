@@ -56,4 +56,8 @@ export class MovieListComponent implements OnInit{
     public toggleImage():void{
         this.isImageDisplayed=!this.isImageDisplayed;
     };
+
+    public callFromStar(rating:number){
+        console.log("from star:",rating)
+    }
 }
