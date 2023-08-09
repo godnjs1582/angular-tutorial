@@ -74,3 +74,5 @@ public set score(v:number){
 }
 ```
 - backing variable : getter와 setter에 의해서만 관리되어야 함, 관례적으로 _를 붙임
+
+## 5.컴포넌트 중첩
