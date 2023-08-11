@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IMovie }from "./movie.model"
 import { MovieService } from "./movie.service";
+import { Subscription } from "rxjs";
 
 @Component({
     selector:"app-movie",
@@ -8,17 +9,25 @@ import { MovieService } from "./movie.service";
     styleUrls:["./movie-list.component.scss"],
     providers:[MovieService]
 })
-export class MovieListComponent implements OnInit{
-
-    constructor(private movieService:MovieService){
-
-    }
+export class MovieListComponent implements OnInit, OnDestroy{
+    
     subTitle:string="영화리스트";
     imageWidth:number=55;
     imageMargin:number=2;
     isImageDisplayed:boolean=false;
-    movies:IMovie[]=[]
+    
+    subscription!:Subscription;
+
     private _filterText="";
+
+    movies:IMovie[]=[]
+    filteredMovies:IMovie[]=[];
+  
+    constructor(private movieService:MovieService){
+
+    }
+    
+ 
 
     get filterText():string{
         return this._filterText;
@@ -34,10 +43,18 @@ export class MovieListComponent implements OnInit{
             return movie.name.toLocaleLowerCase().includes(filterBy)
         })
     }
-    filteredMovies:IMovie[]=[];
+   
 
     public ngOnInit(): void {
-        this.movies=this.movieService.getMovies();
+        this.subscription = this.movieService.getMovies().subscribe({
+            next:(data)=>{
+                this.movies=data;
+                this.filteredMovies=this.movies;
+            },
+            error:(error)=>console.log(error),
+            complete:()=>console.log("complete")
+        })
+        // this.movies=this.movieService.getMovies();
         this.filteredMovies=this.movies;
     }
     public toggleImage():void{
@@ -46,5 +63,9 @@ export class MovieListComponent implements OnInit{
 
     public callFromStar(rating:number){
         console.log("from star:",rating)
+    }
+
+    public ngOnDestroy():void{
+        this.subscription.unsubscribe();
     }
 }
