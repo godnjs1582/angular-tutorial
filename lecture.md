@@ -147,6 +147,6 @@ constructor(private myservice:MySesrvice){
 2. error : 오류가 발생하면 observable에서 error 알림을 내보내고 오류 정보를 제공함
 3. complete : 내보낼 항목이 더 없는 경우
 
-### Observable TPipe
+### Observable Pipe
 : 일련의 연산자를 사용하여 내보내는 각 항목을 변환하는 일종이 파이프 라인을 만듦
 - 소문자로 바꾸는 연산자를 통해 파이프를 통과하면 모든 데이터는 소문자로 변화

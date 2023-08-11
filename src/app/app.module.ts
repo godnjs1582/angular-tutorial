@@ -7,6 +7,7 @@ import { MovieListComponent } from './movies/movie-list.component';
 import { FormsModule } from '@angular/forms';
 import { ConvertPipe } from './shared/convert.pipe';
 import { StarScoreComponent } from './shared/star-score.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { StarScoreComponent } from './shared/star-score.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
