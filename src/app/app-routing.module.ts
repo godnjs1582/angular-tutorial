@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { MovieListComponent } from './movies/movie-list.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { WelcomeComponent } from './movies/welcome/welcome.component';
+import { movieDetailGuard } from './movies/movie-detail/movie-detail.guard';
 
 const routes: Routes = [
   {path:'movies', component:MovieListComponent},
-  {path:'movies/:id',component:MovieDetailComponent},
+  {path:'movies/:id',canActivate:[movieDetailGuard],component:MovieDetailComponent},
   {path:'welcome',component:WelcomeComponent},
   {path:'',redirectTo:'welcome',pathMatch:'full'},
   {path:'**',component:WelcomeComponent}

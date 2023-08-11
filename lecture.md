@@ -171,3 +171,15 @@ import { RouterModule, Routes } from "@angular/router";
 2. routes
 - path에는 선행 슬래시(/)가 없음
 - 더 구체적인 경로가 와일드카드 경로와 같이 덜 구체적인 경로 앞에 있어야 함
+
+### 라우팅 가드
+1. CanActivate
+-  url 매개변수가 유효하지 않은 경우 이동을 방지
+2. CanDeactivate
+3. Resolve
+4. CanLoad
+
+-  가드 클래스 파일 생성
+```
+ng g g movies/movie-detail/movie-detail
+```
