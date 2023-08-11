@@ -54,8 +54,6 @@ export class MovieListComponent implements OnInit, OnDestroy{
             error:(error)=>console.log(error),
             complete:()=>console.log("complete")
         })
-        // this.movies=this.movieService.getMovies();
-        this.filteredMovies=this.movies;
     }
     public toggleImage():void{
         this.isImageDisplayed=!this.isImageDisplayed;
