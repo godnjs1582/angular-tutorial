@@ -203,3 +203,31 @@ ng g m movies./movie --flat
 ```
 ng g m shared/shared --flat
 ```
+
+
+### angular cli
+- angular에 대한 명렬줄 인터페이스
+- 앵귤러 애플리케이션 구축, 파일 생성 ,애플리케이션 구축 및 서비스,테스트 실팽, 배포 준비등 지원
+```
+ng <command> <args> --<options>
+```
+1. ng serve
+- 애플리케이션을 컴파일하여 템플릿과 typescript 코드를 javascript 코드로 바꿈
+- 포트 4200에서 수신하는 로컬 웹 서버 시작
+- 메모리에서 애플리케이션을 제공해 주고 파일이 변경시 다시 빌드 
+- cli가 애플리케이션을 빌드가호 번들된 자바스크립트를 콘솔에 출력
+- vendors.js : 애플리케이션으로 가져온 앵귤러 및 타사 라이브러리
+- polyfills.js : 다양한 브라우저의 기능을 지원하는데 필요한 코드
+- styles.css, styles.js : 앱의 스타일
+- main.js: 애플리케이션 코드
+- runtime.js : 웹팩 로더ㅡ 컴파일 및 번들링 프로세스 뒷받침
+
+2. ng generate
+- 컴포넌트와 템플릿, 서비스 및 모듈의 생성
+- 컴포넌트 생성 : ng g c <name>
+- 디렉티브 생성 : ng g d <name>
+- 라우트 가드 생성 : ng g g <name> 
+- 인터페이스 생성 : ng g i <name>
+- 모듈 생성 :ng g m <name>
+- 파이프 생성 : ng g p <name>
+- 서비스 생성 : ng g s <name>
