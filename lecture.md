@@ -192,7 +192,14 @@ ng g g movies/movie-detail/movie-detail
 - 빠르게 로드되거나 라우터에 의해 비동기적으로 느리게 로드를 가능하게 해줌
 
 ### 모듈 분리하기
+1. 기능 모듈
 - 기능 모듈 작성하기
 ```
 ng g m movies./movie --flat
+```
+
+2. 공유 모듈
+- 일반적으로 사용되는 기능 조각을 하나의 모듈로 정리하여 공유 모듈을 사용하는 모든 모듈에서 사용할 수 있도록 내보내는 것
+```
+ng g m shared/shared --flat
 ```
