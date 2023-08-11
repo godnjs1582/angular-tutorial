@@ -1,17 +1,23 @@
 import { Component, OnInit } from "@angular/core";
 import { IMovie }from "./movie.model"
+import { MovieService } from "./movie.service";
 
 @Component({
     selector:"app-movie",
     templateUrl:"./movie-list.component.html",
-    styleUrls:["./movie-list.component.scss"]
+    styleUrls:["./movie-list.component.scss"],
+    providers:[MovieService]
 })
 export class MovieListComponent implements OnInit{
+
+    constructor(private movieService:MovieService){
+
+    }
     subTitle:string="영화리스트";
     imageWidth:number=55;
     imageMargin:number=2;
     isImageDisplayed:boolean=false;
-    // filterText:string="";
+    movies:IMovie[]=[]
     private _filterText="";
 
     get filterText():string{
@@ -29,29 +35,10 @@ export class MovieListComponent implements OnInit{
         })
     }
     filteredMovies:IMovie[]=[];
-    movies:IMovie[]=[
-        {
-            "movieId":1,
-            "name":"matrix4",
-            "director":"aa",
-            "releaseDate":"2022-01-10",
-            "actor":"Keanu Reeves",
-            "rate":4,
-            "imageUrl":"/assets/images/matrix4.jpeg",
-        },
-        {
-            "movieId":2,
-            "name":"spider-man:No Way Home",
-            "director":"aa",
-            "releaseDate":"2022-01-17",
-            "actor":"tom holland",
-            "rate":3,
-            "imageUrl":"",
-        },
-    ]
 
     public ngOnInit(): void {
-        console.log("앵귤러 라이프 사이클:ngOnInit()")
+        this.movies=this.movieService.getMovies();
+        this.filteredMovies=this.movies;
     }
     public toggleImage():void{
         this.isImageDisplayed=!this.isImageDisplayed;
