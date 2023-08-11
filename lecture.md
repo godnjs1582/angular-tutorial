@@ -150,3 +150,24 @@ constructor(private myservice:MySesrvice){
 ### Observable Pipe
 : 일련의 연산자를 사용하여 내보내는 각 항목을 변환하는 일종이 파이프 라인을 만듦
 - 소문자로 바꾸는 연산자를 통해 파이프를 통과하면 모든 데이터는 소문자로 변화
+
+### angular cli로 컴포넌트 추가하기
+```
+ng g c movies/movie-detail
+```
+
+## 라우팅(Routing)
+- 앵귤러는 싱글 페이지 애플리케이션
+- 모든 뷰가 일반적으로 index.html 파일에 정의된 한 페이지 내에서 표시됨
+- 페이지에 언제 어떤 뷰를 표시해야 하는지 관리하는 것이 목적
+### 라우팅 모듈 만들기
+```
+import { RouterModule, Routes } from "@angular/router"; 
+```
+1. RouterModule
+- 라우터 서비스 공급자를 등록하는 역할
+- RouterLink, RouterOutlet과 같은 라우트 관련 지시문 선언
+- 우리가 구성하는 경로(path) 노출
+2. routes
+- path에는 선행 슬래시(/)가 없음
+- 더 구체적인 경로가 와일드카드 경로와 같이 덜 구체적인 경로 앞에 있어야 함

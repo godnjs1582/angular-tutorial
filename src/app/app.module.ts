@@ -8,13 +8,17 @@ import { FormsModule } from '@angular/forms';
 import { ConvertPipe } from './shared/convert.pipe';
 import { StarScoreComponent } from './shared/star-score.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
+import { WelcomeComponent } from './movies/welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
     ConvertPipe,
-    StarScoreComponent
+    StarScoreComponent,
+    MovieDetailComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
