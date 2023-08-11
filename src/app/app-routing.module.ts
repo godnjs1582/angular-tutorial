@@ -5,13 +5,6 @@ import { MovieDetailComponent } from './movies/movie-detail/movie-detail.compone
 import { WelcomeComponent } from './movies/welcome/welcome.component';
 import { movieDetailGuard } from './movies/movie-detail/movie-detail.guard';
 
-const routes: Routes = [
-  {path:'movies', component:MovieListComponent},
-  {path:'movies/:id',canActivate:[movieDetailGuard],component:MovieDetailComponent},
-  {path:'welcome',component:WelcomeComponent},
-  {path:'',redirectTo:'welcome',pathMatch:'full'},
-  {path:'**',component:WelcomeComponent}
-];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
